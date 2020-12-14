@@ -305,11 +305,12 @@
                         buildEnv[key] = value
                     }
                 }
+                const branch = Array.isArray(this.formData.branch) ? this.formData.branch.join() : this.formData.branch
                 const data = this.scenes !== 'manage-edit' ? {
                     taskId: this.taskId,
                     aliasName: this.formData.aliasName,
                     repoHashId: this.formData.repoHashId,
-                    branch: this.formData.branch,
+                    branch,
                     scmType: this.repoSelected.type,
                     osType: receiveData.compileEnv || '',
                     buildEnv: buildEnv || '',
@@ -319,7 +320,7 @@
                     taskId: this.$route.params.taskId,
                     aliasName: this.formData.aliasName,
                     repoHashId: this.formData.repoHashId,
-                    branch: this.formData.branch,
+                    branch,
                     scmType: this.repoSelected.type,
                     osType: receiveData.compileEnv || '',
                     buildEnv: buildEnv || '',
